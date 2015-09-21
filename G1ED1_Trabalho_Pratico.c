@@ -50,7 +50,7 @@ typedef struct veiculo{
     struct veiculo *prox;
 }veiculo;
 
-Veiculo * cria_elemento(int codigo, char placa[100], char marca[100], char modelo[100], int anoFab, float){
+Veiculo * cria_elemento(int codigo, char placa[100], char marca[100], char modelo[100], int anoFab, float valor){
         Veiculo *novo;
         novo = (Veiculo *) malloc(sizeof(Veiculo));
         novo->codigo = codigo;
