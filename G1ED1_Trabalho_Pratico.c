@@ -54,7 +54,7 @@ Veiculo * cria_elemento(int codigo, char placa[100], char marca[100], char model
         Veiculo *novo;
         novo = (Veiculo *) malloc(sizeof(Veiculo));
         novo->codigo = codigo;
-        novo->categoria = categoria;
+        novo->placa = placa;
         strcpy (novo->descr, descr);
         novo->preco = preco;
         novo->proximo = NULL;
@@ -147,4 +147,135 @@ veiculo * buscar_veiculo(veiculo * inicio, char placa[])
     }
     printf("Veiculo nao encontrado!");
     return NULL;
+}
+
+
+
+
+
+
+int main ()
+{
+   	     Produto * lista = NULL;
+
+	          int opcao;
+              while(opcao != 0) {
+              system ("CLS");
+              printf ("\n\n            Bem Vindo ao Sistema TED-1-G1           \n\n");
+              printf ("--------------------------------------------------------\n");
+              printf ("|  Opcao 1:   Incluir Produtos - Falta concluir        |\n");
+              printf ("--------------------------------------------------------\n");
+              printf ("|  Opcao 2:   Consultar Produtos -OK                   |\n");
+              printf ("--------------------------------------------------------\n");
+              printf ("|  Opcao 3:   Excluir Produtos - OK                    |\n");
+              printf ("--------------------------------------------------------\n");
+              printf ("|  Opcao 4:   Listar Produto Cadastrados - OK          |\n");
+              printf ("--------------------------------------------------------\n");
+              printf ("|  Opcao 5:   Listar Produto de Maiogit push -u origin masterr Preco - OK       |\n");
+              printf ("--------------------------------------------------------\n");
+              printf ("|  Opcao 6:   Listar Produto de Menor Preco - OK       |\n");
+              printf ("--------------------------------------------------------\n");
+              printf ("|  Opcao 7:   Listar Media de Preco por Categoria - OK |\n");
+              printf ("--------------------------------------------------------\n");
+              printf ("|  Opcao 0:   Sair do Sistema                          |\n");
+              printf ("--------------------------------------------------------\n\n");
+              printf ("Digite a opcao desejada:");
+	          scanf ("%d",&opcao);
+	          switch(opcao) {
+                          case 0:{
+                               system("cls"); //Baita balaca
+                               printf ("\n\n\n\n\n\n\n\n                        FINALIZANDO O SISTEMA AGUARDE!!!!!\n");}
+                               break;
+                          case 1:{   //Incrementa o código do produto automaticamente para não haver intervalos e repetições.
+                               int cod_prod;
+                               if (lista != NULL){
+                                  Produto * ele_ult_cod = busca_ultimo_codigo(lista);
+                                  cod_prod = ele_ult_cod->codigo +1;}
+                               else {
+                                     cod_prod = 1;}
+                                system ("CLS");
+                                printf ("\nO codigo do novo produto eh:  %d\n", cod_prod);
+                                printf ("\nDigite a categoria do novo produto: ");
+                                int categ;
+                                scanf("%d",&categ);
+                                printf ("\nDigite a descricao do novo produto: ");
+                                char descr[35];
+                                setbuf(stdin, NULL);
+                                scanf ("%[a-z A-Z 0-9]s", descr);
+                                setbuf(stdin, NULL);
+                                printf ("\nDigite o valor do produto: ");
+                                float preco;
+                                scanf ("%f", &preco);
+                                Produto *n = cria_elemento(cod_prod, categ, descr, preco);
+                                lista = insere_ultimo(lista, n);
+                                printf ("\n\nProduto cadastrado com Sucesso!!\n\n\n");
+                                system ("pause");}
+                                break;
+                          case 2:{    //busca dados do produto pelo código.
+                                printf ("\nDigite o codigo do produto a ser consultado: ");
+                                int codigo_busca;
+                                scanf("%d",&codigo_busca);
+                                Produto * busca_cod = busca_produto_codigo(lista, codigo_busca);
+                                system ("cls");
+                                printf ("\n\n          DADOS DO PRODUTO CADASTRADO NO SISTEMA   \n");
+                                printf("\n Dados do produto de codigo: codigo_busca\n\n");
+                                printf("Codigo: %d\n", busca_cod->codigo);
+	                            printf("Categoria: %d\n", busca_cod->categoria);
+	                            printf("Descriao: %s\n", busca_cod->descr);
+                                printf("Preco: R$%10.2f \n\n\n", busca_cod->preco);
+                                system("pause");}
+                                break;
+                          case 3:{    //Exclui um produto pelo código.
+                                printf ("\nDigite o codigo do produto a ser excluido: ");
+                                int cod_prod_ex;
+                                scanf("%d",&cod_prod_ex);
+                                lista = remove_elemento(lista, cod_prod_ex);}
+                                break;
+                          case 4:{    //Apresenta a lista completa.           //Cópia descarada dos exercícios.
+                                printf("\n\n");
+                                apresenta_lista(lista);
+                                system("pause");}
+                                break;
+                          case 5:{    //Busca o produto com maior preço da lista.
+                                Produto * maiorpreco = maior_preco(lista);
+                                system ("cls");
+                                printf ("\n\n           LISTA O PRODUTO DE MAIOR PRECO  \n");
+                                printf("\n O Produto de Maior preco eh: \n\n");
+                                printf("Codigo: %d\n", maiorpreco->codigo);
+	                            printf("Categoria: %d\n", maiorpreco->categoria);
+	                            printf("Descriao: %s\n", maiorpreco->descr);
+                                printf("Preco: R$%10.2f \n\n\n", maiorpreco->preco);
+                                system("pause");}
+                                break;
+                          case 6: {   //Busca o produto de menor preço da lista.
+                                Produto * menorpreco = menor_preco(lista);
+                                system ("cls");
+                                printf ("\n\n           LISTA O PRODUTOS DE MENOR PRECO   \n");
+                                printf("\n O Produto de Menor preco eh: \n\n ");
+                                printf("Codigo: %d \n", menorpreco->codigo);
+	                            printf("Categoria: %d \n", menorpreco->categoria);
+	                            printf("Descriao: %s \n", menorpreco->descr);
+                                printf("Preco: R$%10.2f \n\n\n", menorpreco->preco);
+                                system("pause");}
+                                break;
+                          case 7:{    //Apresenta a média de preços dos produtos de uma unica categoria.
+                                float media;
+                                int categ;
+                                system ("cls");
+                                printf ("\n\n           LISTA MEDIA DE PRECO POR CATEGORIA         \n");
+                                printf ("\nDigite a categoria a ser consultada: ");
+                                scanf ("%d", &categ);
+                                media = media_preco(lista, categ);
+                                printf ("\n\n A media de preco da categoria: %d \n", categ);
+                                printf ("\n Foi de: R$ %10.2f \n", media);
+                                system("pause");}
+                                break;
+                          default: {    //Caso no menu seja escolhido uma opção inválida.
+                               printf ("\n OPCAO INVALIDA - ESCOLHA UMA DAS OPCOES DO MENU \n");
+                               system("pause");}
+                               break;}}
+    int fim;
+    while ( fim != 400000000){ //Loop usado pela balaca do final.
+          fim++;}
+	return(0);
 }
