@@ -54,9 +54,10 @@ Veiculo * cria_elemento(int codigo, char placa[100], char marca[100], char model
         Veiculo *novo;
         novo = (Veiculo *) malloc(sizeof(Veiculo));
         novo->codigo = codigo;
-        novo->placa = placa;
-        strcpy (novo->descr, descr);
-        novo->preco = preco;
+        strcpy(novo->placa, placa);
+        strcpy(novo->marca, marca);
+        strcpy(novo->modelo, modelo);
+        novo->valor = valor;
         novo->proximo = NULL;
         return novo;
 }
@@ -65,7 +66,7 @@ Veiculo * cria_elemento(int codigo, char placa[100], char marca[100], char model
 //Retorna a lista com o elemento inserido como primeiro
 //Função ok!!
 //Copia descarada dos exercicios.
-Produto * insere_primeiro(Produto * lista, Produto * novo){
+Veiculo * insere_primeiro(Veiculo * lista, Veiculo * novo){
         novo->proximo = lista;
         return novo;
 }
@@ -74,41 +75,38 @@ Produto * insere_primeiro(Produto * lista, Produto * novo){
 //Retorna a lista com o elemento inserido como ultimo
 //Função ok!!
 //Copia descarada dos exercicios.
-Produto * insere_ultimo(Produto * lista, Produto * novo){
+Veiculo * insere_ultimo(Veiculo * lista, Veiculo * novo){
         if (lista != NULL) {
-           Produto * aux = lista;
+           Veiculo * aux = lista;
                    while (aux->proximo != NULL){
                          aux = aux->proximo;}
                    aux->proximo = novo;
                    return lista;}
         else{
-             return novo;}}
+             return novo;}
+}
 
 //Insere o novo elemento na posição da lista
 //Retorna a lista com o elemento inserido na posição informada
 //Função ok!!
 //Copia descarada dos exercicios.
-Produto * inserir_elemento_na_posicao(Produto * lista, Produto * novo, int posicao){
-        Produto * aux = lista;
+Veiculo * inserir_elemento_na_posicao(Veiculo * lista, Veiculo * novo, int posicao){
+        Veiculo * aux = lista;
         int cont = 1;
-        if (lista == NULL){
+        if (lista == NUL
+        L){
            return novo;}
         while(aux->proximo!= NULL && cont < (posicao-1)){
                              aux = aux->proximo;
-                             cont++;}
+                             cont++;
+        }
         novo->proximo = aux->proximo;
         aux->proximo = novo;
         if (posicao == 1){
            return novo;}
         else{
-             return lista;}}
-
-
-
-
-
-
-
+             return lista;}
+}
 /** FUNÇÃO PARA LISTAR VEICULOS CADASTRADOS **/
 void show_veiculo(veiculo * lista){
   //Percorrendo os elementos da lista
@@ -156,15 +154,17 @@ veiculo * buscar_veiculo(veiculo * inicio, char placa[])
 
 int main ()
 {
-   	     Produto * lista = NULL;
+    Veiculo * lista = NULL;
 
-	          int opcao;
-              while(opcao != 0) {
-              system ("CLS");
-              printf ("\n\n            Bem Vindo ao Sistema TED-1-G1           \n\n");
-              printf ("--------------------------------------------------------\n");
-              printf ("|  Opcao 1:   Incluir Produtos - Falta concluir        |\n");
-              printf ("--------------------------------------------------------\n");
+    int opcao;
+
+    while(opcao != 0)
+    {
+        system ("CLS");
+        printf ("\n\n            Bem Vindo ao Sistema TED-1-G1           \n\n");
+        printf ("--------------------------------------------------------\n");
+        printf ("|  Opcao 1:   Incluir Produtos - Falta concluir        |\n");
+        printf ("--------------------------------------------------------\n");
               printf ("|  Opcao 2:   Consultar Produtos -OK                   |\n");
               printf ("--------------------------------------------------------\n");
               printf ("|  Opcao 3:   Excluir Produtos - OK                    |\n");
