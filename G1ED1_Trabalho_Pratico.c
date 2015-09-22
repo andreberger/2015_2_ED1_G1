@@ -4,9 +4,11 @@ CENTRO UNIVERSITÁRIO LA SALLE - UNILASALLE
 DISCIPLINA DE ESTRUTURA DE DADOS I
 Semestre: 2015/2
 Professor: Eder Stone Fontoura
-Programador: André Kroetz Berger
-	     Diógens Vargas de Bittencourt
-	Samuel Guterres 
+Programador:    André Kroetz Berger
+                Diógenes Vargas de Bittencourt
+                Mauricio Lessa
+                Paulo Lopes
+                Samuel Guterres
 
 Desenvolver um cadastro de veículos contendo as funcionalidades descritas abaixo:
 
