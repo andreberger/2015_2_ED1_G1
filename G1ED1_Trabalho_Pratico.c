@@ -160,8 +160,8 @@ int main ()
     while(opcao != 0)
     {
         system ("CLS");
-        printf ("\n\n  Seja Bem Vindos a Loka Dora Aventureira   \n\n");
-        printf ("--------------------------------------------------\n");
+        printf ("\n\n       Seja Bem Vindos a Loka Dora Aventureira        \n\n");
+        printf ("------------------------------------------------------------\n");
         printf ("|  Opcao 1:   Incluir Veiculo                              |\n");
         printf ("------------------------------------------------------------\n");
         printf ("|  Opcao 2:   Vender Veiculo                               |\n");
@@ -171,9 +171,9 @@ int main ()
         printf ("|  Opcao 4:   Listar Veiculos                              |\n");
         printf ("------------------------------------------------------------\n");
         printf ("|  Opcao 5:   Mostrar valor total em Veiculos cadastrados  |\n");
-        printf ("--------------------------------------------------------\n");
-        printf ("|  Opcao 0:   Sair do Sistema                          |\n");
-        printf ("--------------------------------------------------------\n\n");
+        printf ("------------------------------------------------------------\n");
+        printf ("|  Opcao 0:   Sair do Sistema                              |\n");
+        printf ("----------------------------------------------------------\n\n");
         printf ("Digite a opcao desejada:");
             scanf ("%d",&opcao);
 	          switch(opcao) {
