@@ -4,6 +4,9 @@ CENTRO UNIVERSITÁRIO LA SALLE - UNILASALLE
 DISCIPLINA DE ESTRUTURA DE DADOS I
 Semestre: 2015/2
 Professor: Eder Stone Fontoura
+Programador: André Kroetz Berger
+	     Diógens Vargas de Bittencourt
+	Samuel Guterres 
 
 Desenvolver um cadastro de veículos contendo as funcionalidades descritas abaixo:
 
@@ -40,14 +43,18 @@ CENTRO UNIVERSITÁRIO LASALLE - ESTRUTURA DE DADOS 1
 #include<stdlib.h>
 #include<strings.h>
 
-typedef struct veiculo{
+typedef struct Veiculo{
     int codigo;
     char placa[100];
     char marca[100];
     char modelo[100];
     int anoFab;
     float valor;
+<<<<<<< HEAD
+    struct Veiculo *prox;
+=======
     struct veiculo *proximo;
+>>>>>>> 3d2ff8fd545244e743b4eb7f3cc6c1b8bda9b7c9
 }Veiculo;
 
 Veiculo * cria_elemento(int codigo, char placa[100], char marca[100], char modelo[100], int anoFab, float valor){
