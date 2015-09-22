@@ -160,21 +160,17 @@ int main ()
     while(opcao != 0)
     {
         system ("CLS");
-        printf ("\n\n            Bem Vindo ao Sistema TED-1-G1           \n\n");
-        printf ("--------------------------------------------------------\n");
-        printf ("|  Opcao 1:   Incluir Veiculo                          |\n");
-        printf ("--------------------------------------------------------\n");
-        printf ("|  Opcao 2:   Vender Veiculo                           |\n");
-        printf ("--------------------------------------------------------\n");
-        printf ("|  Opcao 3:   Excluir Produtos - OK                    |\n");
-        printf ("--------------------------------------------------------\n");
-        printf ("|  Opcao 4:   Listar Produto Cadastrados - OK          |\n");
-        printf ("--------------------------------------------------------\n");
-        printf ("|  Opcao 5:   Listar Produto de Maior Preco - OK       |\n");
-        printf ("--------------------------------------------------------\n");
-        printf ("|  Opcao 6:   Listar Produto de Menor Preco - OK       |\n");
-        printf ("--------------------------------------------------------\n");
-        printf ("|  Opcao 7:   Listar Media de Preco por Categoria - OK |\n");
+        printf ("\n\n  Seja Bem Vindos a Loka Dora Aventureira   \n\n");
+        printf ("--------------------------------------------------\n");
+        printf ("|  Opcao 1:   Incluir Veiculo                              |\n");
+        printf ("------------------------------------------------------------\n");
+        printf ("|  Opcao 2:   Vender Veiculo                               |\n");
+        printf ("------------------------------------------------------------\n");
+        printf ("|  Opcao 3:   Excluir Veiculo                              |\n");
+        printf ("------------------------------------------------------------\n");
+        printf ("|  Opcao 4:   Listar Veiculos                              |\n");
+        printf ("------------------------------------------------------------\n");
+        printf ("|  Opcao 5:   Mostrar valor total em Veiculos cadastrados  |\n");
         printf ("--------------------------------------------------------\n");
         printf ("|  Opcao 0:   Sair do Sistema                          |\n");
         printf ("--------------------------------------------------------\n\n");
