@@ -47,8 +47,8 @@ typedef struct veiculo{
     char modelo[100];
     int anoFab;
     float valor;
-    struct veiculo *prox;
-}veiculo;
+    struct veiculo *proximo;
+}Veiculo;
 
 Veiculo * cria_elemento(int codigo, char placa[100], char marca[100], char modelo[100], int anoFab, float valor){
         Veiculo *novo;
@@ -93,8 +93,7 @@ Veiculo * insere_ultimo(Veiculo * lista, Veiculo * novo){
 Veiculo * inserir_elemento_na_posicao(Veiculo * lista, Veiculo * novo, int posicao){
         Veiculo * aux = lista;
         int cont = 1;
-        if (lista == NUL
-        L){
+        if (lista == NULL){
            return novo;}
         while(aux->proximo!= NULL && cont < (posicao-1)){
                              aux = aux->proximo;
@@ -108,9 +107,9 @@ Veiculo * inserir_elemento_na_posicao(Veiculo * lista, Veiculo * novo, int posic
              return lista;}
 }
 /** FUNÇÃO PARA LISTAR VEICULOS CADASTRADOS **/
-void show_veiculo(veiculo * lista){
+void show_veiculo(Veiculo * lista){
   //Percorrendo os elementos da lista
-  veiculo * aux = lista;
+  Veiculo * aux = lista;
   printf("<-- VEICULOS CADASTRADOS -->\n\n");
     while(aux != NULL){
         printf("Código: %d \n", aux->codigo);
@@ -120,13 +119,13 @@ void show_veiculo(veiculo * lista){
         printf("Ano Fabricacao: %d \n", aux->anoFab);
         printf("Valor Veiculo: R$ %.2f \n", aux->valor);
         printf("\n");
-        aux = aux->prox;
+        aux = aux->proximo;
     }
 }
 /** FUNÇÃO PARA BUSCAR VEICULOS **/
-veiculo * buscar_veiculo(veiculo * inicio, char placa[])
+Veiculo * buscar_veiculo(Veiculo * inicio, char placa[])
 {
-    veiculo * aux = inicio;
+    Veiculo * aux = inicio;
     while(aux != NULL){
 
         if(strcmp(aux->placa,placa) == 0)
@@ -141,7 +140,7 @@ veiculo * buscar_veiculo(veiculo * inicio, char placa[])
             printf("\n");
             return aux;
         }
-        aux = aux->prox;
+        aux = aux->proximo;
     }
     printf("Veiculo nao encontrado!");
     return NULL;
@@ -163,33 +162,33 @@ int main ()
         system ("CLS");
         printf ("\n\n            Bem Vindo ao Sistema TED-1-G1           \n\n");
         printf ("--------------------------------------------------------\n");
-        printf ("|  Opcao 1:   Incluir Produtos - Falta concluir        |\n");
+        printf ("|  Opcao 1:   Incluir Veiculo                          |\n");
         printf ("--------------------------------------------------------\n");
-              printf ("|  Opcao 2:   Consultar Produtos -OK                   |\n");
-              printf ("--------------------------------------------------------\n");
-              printf ("|  Opcao 3:   Excluir Produtos - OK                    |\n");
-              printf ("--------------------------------------------------------\n");
-              printf ("|  Opcao 4:   Listar Produto Cadastrados - OK          |\n");
-              printf ("--------------------------------------------------------\n");
-              printf ("|  Opcao 5:   Listar Produto de Maiogit push -u origin masterr Preco - OK       |\n");
-              printf ("--------------------------------------------------------\n");
-              printf ("|  Opcao 6:   Listar Produto de Menor Preco - OK       |\n");
-              printf ("--------------------------------------------------------\n");
-              printf ("|  Opcao 7:   Listar Media de Preco por Categoria - OK |\n");
-              printf ("--------------------------------------------------------\n");
-              printf ("|  Opcao 0:   Sair do Sistema                          |\n");
-              printf ("--------------------------------------------------------\n\n");
-              printf ("Digite a opcao desejada:");
-	          scanf ("%d",&opcao);
+        printf ("|  Opcao 2:   Vender Veiculo                           |\n");
+        printf ("--------------------------------------------------------\n");
+        printf ("|  Opcao 3:   Excluir Produtos - OK                    |\n");
+        printf ("--------------------------------------------------------\n");
+        printf ("|  Opcao 4:   Listar Produto Cadastrados - OK          |\n");
+        printf ("--------------------------------------------------------\n");
+        printf ("|  Opcao 5:   Listar Produto de Maior Preco - OK       |\n");
+        printf ("--------------------------------------------------------\n");
+        printf ("|  Opcao 6:   Listar Produto de Menor Preco - OK       |\n");
+        printf ("--------------------------------------------------------\n");
+        printf ("|  Opcao 7:   Listar Media de Preco por Categoria - OK |\n");
+        printf ("--------------------------------------------------------\n");
+        printf ("|  Opcao 0:   Sair do Sistema                          |\n");
+        printf ("--------------------------------------------------------\n\n");
+        printf ("Digite a opcao desejada:");
+            scanf ("%d",&opcao);
 	          switch(opcao) {
                           case 0:{
                                system("cls"); //Baita balaca
                                printf ("\n\n\n\n\n\n\n\n                        FINALIZANDO O SISTEMA AGUARDE!!!!!\n");}
                                break;
-                          case 1:{   //Incrementa o código do produto automaticamente para não haver intervalos e repetições.
+                       /**   case 1:{   //Incrementa o código do produto automaticamente para não haver intervalos e repetições.
                                int cod_prod;
                                if (lista != NULL){
-                                  Produto * ele_ult_cod = busca_ultimo_codigo(lista);
+                                  Veiculo * ele_ult_cod = busca_ultimo_codigo(lista);
                                   cod_prod = ele_ult_cod->codigo +1;}
                                else {
                                      cod_prod = 1;}
@@ -206,16 +205,17 @@ int main ()
                                 printf ("\nDigite o valor do produto: ");
                                 float preco;
                                 scanf ("%f", &preco);
-                                Produto *n = cria_elemento(cod_prod, categ, descr, preco);
+                                Veiculo *n = cria_elemento(cod_prod, categ, descr, preco);
                                 lista = insere_ultimo(lista, n);
                                 printf ("\n\nProduto cadastrado com Sucesso!!\n\n\n");
                                 system ("pause");}
                                 break;
+
                           case 2:{    //busca dados do produto pelo código.
                                 printf ("\nDigite o codigo do produto a ser consultado: ");
                                 int codigo_busca;
                                 scanf("%d",&codigo_busca);
-                                Produto * busca_cod = busca_produto_codigo(lista, codigo_busca);
+                                Veiculo * busca_cod = busca_produto_codigo(lista, codigo_busca);
                                 system ("cls");
                                 printf ("\n\n          DADOS DO PRODUTO CADASTRADO NO SISTEMA   \n");
                                 printf("\n Dados do produto de codigo: codigo_busca\n\n");
@@ -270,6 +270,9 @@ int main ()
                                 printf ("\n Foi de: R$ %10.2f \n", media);
                                 system("pause");}
                                 break;
+
+                                **/
+
                           default: {    //Caso no menu seja escolhido uma opção inválida.
                                printf ("\n OPCAO INVALIDA - ESCOLHA UMA DAS OPCOES DO MENU \n");
                                system("pause");}
