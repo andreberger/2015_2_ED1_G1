@@ -189,6 +189,16 @@ Veiculo * buscar_veiculo(Veiculo * inicio, char placa[])
     return NULL;
 }
 
+
+/* Verificar e adicionar no inicio do menu o campo para receber o valor */
+Veiculo * contar_veiculo(Veiculo * inicio,int contar = 0){
+Veiculo * aux = inicio;
+    while(aux!= NULL){
+     contar = contar + 1;
+       
+   }
+}
+
 int main()
 {
     Veiculo * lista = NULL;
