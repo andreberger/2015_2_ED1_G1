@@ -113,13 +113,49 @@ Veiculo * inserir_elemento_na_posicao(Veiculo * lista, Veiculo * novo, int posic
         else{
              return lista;}
 }
+/** FUNÇÃO PARA REMOVER VEICULO **/
+Veiculo * remove_elemento(Veiculo * lista, int posicao){
+      Veiculo * aux = lista;
+      Veiculo * remove = NULL;
+      int cont = 1;
+      if (lista == NULL){ //se lista está vazia
+         return NULL;
+      }
+      while(aux->proximo != NULL && cont < (posicao-1)){
+        aux = aux->proximo;
+        cont++;
+      }
+      // se eh a segunda posicao entao so deve atualizar o cont
+      if (posicao == 2){
+         cont++;
+      }
+      // Testa se a remoção é o primeiro da lista.
+      // Neste caso, existem duas possibilidades: (a) ter mais de um na lista.          //Eu disse que era uma cópia descarada.
+      //                                          (b) ser o unico na lista.
+      // Quando for mais de um, atualizar a lista para o novo primeiro.
+      if (cont == 1){
+           if (aux->proximo != NULL){
+              lista = aux->proximo;
+            } // atualiza o inicio.
+           else{
+              lista = NULL;
+            }     // caso só exista na lista o proprio a ser removido
+           free(aux);
+        }
+      else {
+            remove = aux->proximo;
+            aux->proximo = remove->proximo;
+            free(remove);
+        }
+      return lista;
+}
 /** FUNÇÃO PARA LISTAR VEICULOS CADASTRADOS **/
 void show_veiculo(Veiculo * lista){
   //Percorrendo os elementos da lista
   Veiculo * aux = lista;
   printf("<-- VEICULOS CADASTRADOS -->\n\n");
     while(aux != NULL){
-        printf("Código: %d \n", aux->codigo);
+        printf("Codigo: %d \n", aux->codigo);
         printf("Placa: %s \n", aux->placa);
         printf("Marca: %s \n", aux->marca);
         printf("Modelo: %s \n", aux->modelo);
@@ -182,7 +218,7 @@ int main()
         printf ("------------------------------------------------------------\n");
         printf ("|  Opcao 0:   Sair do Sistema                              |\n");
         printf ("----------------------------------------------------------\n\n");
-        printf ("Digite a opcao desejada:");
+        printf ("Digite a opcao desejada: ");
         scanf ("%d",&opcao);
 
         switch(opcao)
@@ -207,16 +243,19 @@ int main()
                 system ("CLS");
 
                 printf ("\nO codigo do novo produto eh:  %d\n", cod_prod);
-                **/printf ("\nPlaca do Veículo: ");
+                **/
+                printf("Cod do Veiculo: ");
+                scanf("%d",&codigo);
+                printf("\nPlaca do Veiculo: ");
                 gets(placa);
-                printf("\nDigite a marca do veículo: ");
+                printf("\nDigite a marca do veiculo: ");
                 gets(marca);
-                printf("\nDigite o modelo do veículo: ");
+                printf("\nDigite o modelo do veiculo: ");
                 gets(modelo);
                 printf("\nDigite o Ano de Faricacao do Veiculo");
                 scanf("%d",&anoFab);
                 printf("\nDigite o valor do veiculo");
-                scanf ("%f", &valor);
+                scanf("%f",&valor);
 
                 Veiculo *n = cria_elemento(codigo, placa, marca, modelo, anoFab, valor);
                 lista = insere_ultimo(lista, n);
