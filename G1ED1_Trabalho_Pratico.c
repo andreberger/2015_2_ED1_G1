@@ -72,16 +72,13 @@ Veiculo * cria_elemento(int codigo, char placa[100], char marca[100], char model
 //Funcao para inserir um elemento na primeira posicao da lista
 //Retorna a lista com o elemento inserido como primeiro
 //Função ok!!
-//Copia descarada dos exercicios.
 Veiculo * insere_primeiro(Veiculo * lista, Veiculo * novo){
         novo->proximo = lista;
         return novo;
 }
-
 //Insere o novo elemento na ultima posicao da lista
 //Retorna a lista com o elemento inserido como ultimo
 //Função ok!!
-//Copia descarada dos exercicios.
 Veiculo * insere_ultimo(Veiculo * lista, Veiculo * novo){
         if (lista != NULL) {
            Veiculo * aux = lista;
@@ -92,11 +89,9 @@ Veiculo * insere_ultimo(Veiculo * lista, Veiculo * novo){
         else{
              return novo;}
 }
-
 //Insere o novo elemento na posição da lista
 //Retorna a lista com o elemento inserido na posição informada
 //Função ok!!
-//Copia descarada dos exercicios.
 Veiculo * inserir_elemento_na_posicao(Veiculo * lista, Veiculo * novo, int posicao){
         Veiculo * aux = lista;
         int cont = 1;
@@ -130,7 +125,7 @@ Veiculo * remove_elemento(Veiculo * lista, int posicao){
          cont++;
       }
       // Testa se a remoção é o primeiro da lista.
-      // Neste caso, existem duas possibilidades: (a) ter mais de um na lista.          //Eu disse que era uma cópia descarada.
+      // Neste caso, existem duas possibilidades: (a) ter mais de um na lista.
       //                                          (b) ser o unico na lista.
       // Quando for mais de um, atualizar a lista para o novo primeiro.
       if (cont == 1){
@@ -182,10 +177,8 @@ Veiculo * buscar_veiculo(Veiculo * inicio, char placa[])
 {
     Veiculo * aux = inicio;
     while(aux != NULL){
-
         if(strcmp(aux->placa,placa) == 0)
         {
-
             printf("Código: %d \n", aux->codigo);
             printf("Placa: %s \n", aux->placa);
             printf("Marca: %s \n", aux->marca);
@@ -200,17 +193,13 @@ Veiculo * buscar_veiculo(Veiculo * inicio, char placa[])
     printf("Veiculo nao encontrado!");
     return NULL;
 }
-
-
 /* Verificar e adicionar no inicio do menu o campo para receber o valor */
 Veiculo * contar_veiculo(Veiculo * inicio, int contar){
 Veiculo * aux = inicio;
     while(aux!= NULL){
      contar = contar + 1;
-
    }
 }
-
 int main()
 {
     Veiculo * lista = NULL;
@@ -310,6 +299,8 @@ int main()
             {
             //Exclui um veiculo pelo codigo
                 show_veiculo2(lista);
+                fflush(stdin);
+                printf("%d", codigo);
                 printf ("\nDigite o codigo do veiculo a ser excluido ou 0 para voltar ao menu: ");
                 int codigo;
                 scanf("%d",&codigo);
