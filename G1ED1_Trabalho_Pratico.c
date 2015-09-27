@@ -296,10 +296,11 @@ int main()
             break;
             case 3:
             {   //Exclui um veiculo pelo codigo
+                show_veiculo(lista);
                 printf ("\nDigite o codigo do veiculo a ser excluido: ");
-                int cod_prod_ex;
-                scanf("%d",&cod_prod_ex);
-                lista = remove_elemento(lista, cod_prod_ex);
+                int codigo;
+                scanf("%d",&codigo);
+                lista = remove_elemento(lista, codigo);
             }
             break;
             case 4:
