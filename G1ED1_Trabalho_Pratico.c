@@ -239,7 +239,7 @@ int main()
         printf ("|  Opcao 5:   Mostrar valor total em Veiculos cadastrados  |\n");
         printf ("------------------------------------------------------------\n");
         printf ("|  Opcao 0:   Sair do Sistema                              |\n");
-        printf ("----------------------------------------------------------\n\n");
+        printf ("------------------------------------------------------------\n");
         printf ("Digite a opcao desejada: ");
         scanf ("%d",&opcao);
 
@@ -309,12 +309,10 @@ int main()
             case 3:
             {   //Exclui um veiculo pelo codigo
                 show_veiculo2(lista);
-                while (codigo !=0){
-        printf ("\nDigite o codigo do veiculo a ser excluido ou 0 para voltar ao menu: ");
+                printf ("\nDigite o codigo do veiculo a ser excluido ou 0 para voltar ao menu: ");
                 int codigo;
                 scanf("%d",&codigo);
-                lista = remove_elemento(lista, codigo);}
-
+                lista = remove_elemento(lista, codigo);
             }
             break;
             case 4:
