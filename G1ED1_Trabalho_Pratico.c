@@ -308,25 +308,12 @@ int main()
             break;
             case 3:
             {
-                int op;
-                //Exclui um veiculo pelo codigo
+            //Exclui um veiculo pelo codigo
                 show_veiculo2(lista);
                 printf ("\nDigite o codigo do veiculo a ser excluido ou 0 para voltar ao menu: ");
-<<<<<<< HEAD
                 int codigo;
                 scanf("%d",&codigo);
                 lista = remove_elemento(lista, codigo);
-=======
-                scanf("%d",&op);
-                while (codigo == 0){
-                        int codigo;
-                        printf("Digite o código do veiculo: ");
-                        scanf("%d",&codigo);
-                        lista = remove_elemento(lista, codigo);
-                }
-
-
->>>>>>> 9980be4ecf2656f4a83c6abc4c15d05f604f6974
             }
             break;
             case 4:
