@@ -165,6 +165,18 @@ void show_veiculo(Veiculo * lista){
         aux = aux->proximo;
     }
 }
+/** FUNÇÃO PARA LISTAR VEICULOS CADASTRADOS RESUMIDO **/
+void show_veiculo2(Veiculo * lista){
+  //Percorrendo os elementos da lista
+  Veiculo * aux = lista;
+  printf("<-- VEICULOS CADASTRADOS -->\n\n");
+    while(aux != NULL){
+        printf("Codigo: %d \n", aux->codigo);
+        printf("Placa: %s \n", aux->placa);
+        printf("\n");
+        aux = aux->proximo;
+    }
+}
 /** FUNÇÃO PARA BUSCAR VEICULOS **/
 Veiculo * buscar_veiculo(Veiculo * inicio, char placa[])
 {
@@ -296,11 +308,13 @@ int main()
             break;
             case 3:
             {   //Exclui um veiculo pelo codigo
-                show_veiculo(lista);
-                printf ("\nDigite o codigo do veiculo a ser excluido: ");
+                show_veiculo2(lista);
+                while (codigo !=0){
+        printf ("\nDigite o codigo do veiculo a ser excluido ou 0 para voltar ao menu: ");
                 int codigo;
                 scanf("%d",&codigo);
-                lista = remove_elemento(lista, codigo);
+                lista = remove_elemento(lista, codigo);}
+
             }
             break;
             case 4:
