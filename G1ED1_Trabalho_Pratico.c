@@ -191,11 +191,11 @@ Veiculo * buscar_veiculo(Veiculo * inicio, char placa[])
 
 
 /* Verificar e adicionar no inicio do menu o campo para receber o valor */
-Veiculo * contar_veiculo(Veiculo * inicio,int contar = 0){
+Veiculo * contar_veiculo(Veiculo * inicio, int contar){
 Veiculo * aux = inicio;
     while(aux!= NULL){
      contar = contar + 1;
-       
+
    }
 }
 
@@ -256,15 +256,19 @@ int main()
                 **/
                 printf("Cod do Veiculo: ");
                 scanf("%d",&codigo);
+                fflush(stdin);
                 printf("\nPlaca do Veiculo: ");
                 gets(placa);
+                fflush(stdin);
                 printf("\nDigite a marca do veiculo: ");
                 gets(marca);
+                fflush(stdin);
                 printf("\nDigite o modelo do veiculo: ");
                 gets(modelo);
-                printf("\nDigite o Ano de Faricacao do Veiculo");
+                fflush(stdin);
+                printf("\nDigite o Ano de Faricacao do Veiculo: ");
                 scanf("%d",&anoFab);
-                printf("\nDigite o valor do veiculo");
+                printf("\nDigite o valor do veiculo: ");
                 scanf("%f",&valor);
 
                 Veiculo *n = cria_elemento(codigo, placa, marca, modelo, anoFab, valor);
@@ -288,16 +292,16 @@ int main()
                 printf("Descriao: %s\n", busca_cod->descr);
                 printf("Preco: R$%10.2f \n\n\n", busca_cod->preco);
                 system("pause");
-            }
+            } **/
             break;
             case 3:
-            {   //Exclui um produto pelo código.
-                printf ("\nDigite o codigo do produto a ser excluido: ");
+            {   //Exclui um veiculo pelo codigo
+                printf ("\nDigite o codigo do veiculo a ser excluido: ");
                 int cod_prod_ex;
                 scanf("%d",&cod_prod_ex);
                 lista = remove_elemento(lista, cod_prod_ex);
             }
-            break; **/
+            break;
             case 4:
             {   //Apresenta a lista completa.           //Cópia descarada dos exercícios.
                 printf("\n\n");
