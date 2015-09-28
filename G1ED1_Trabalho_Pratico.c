@@ -194,10 +194,19 @@ Veiculo * buscar_veiculo(Veiculo * inicio, char placa[])
     return NULL;
 }
 /* Verificar e adicionar no inicio do menu o campo para receber o valor */
-Veiculo * contar_veiculo(Veiculo * inicio, int contar){
+/*Veiculo * contar_veiculo(Veiculo * inicio, int contar){
 Veiculo * aux = inicio;
     while(aux!= NULL){
      contar = contar + 1;
+    printf("Total: %d", contar);
+   }
+}
+*/
+void contar_veiculo(Veiculo * inicio, int contar){
+Veiculo * aux = inicio;
+    while(aux!= NULL){
+     contar = contar + 1;
+     printf("Total: %d", contar);
    }
 }
 int main()
@@ -340,20 +349,12 @@ int main()
                 system("pause");
             }
             break;
-            case 7:
+            **/
+            case 5:
             {   //Apresenta a média de preços dos produtos de uma unica categoria.
-                float media;
-                int categ;
-                system ("cls");
-                printf ("\n\n           LISTA MEDIA DE PRECO POR CATEGORIA         \n");
-                printf ("\nDigite a categoria a ser consultada: ");
-                scanf ("%d", &categ);
-                media = media_preco(lista, categ);
-                printf ("\n\n A media de preco da categoria: %d \n", categ);
-                printf ("\n Foi de: R$ %10.2f \n", media);
-                system("pause");
+
             }
-            break;**/
+            break;
             default:
             {   //Caso no menu seja escolhido uma opção inválida.
                 printf ("\n OPCAO INVALIDA - ESCOLHA UMA DAS OPCOES DO MENU \n");
